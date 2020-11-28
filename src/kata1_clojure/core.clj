@@ -11,10 +11,12 @@
   })
 
 (defn morse-to-text [text]
-  (clojure.string/join (into [] (morse-code text))))
+  (clojure.string/capitalize (clojure.string/join (subvec (into [] (flatten (morse-code text))) 1))))
 
-(defn morse-code [morse-word]
-  (for [letter (clojure.string/split morse-word #" ")]
-    (get morse letter)))
+(defn morse-code [morse-text]
+  (let [words (clojure.string/split morse-text #"/")]
+    (for [word words]
+      (conj (for [letter (clojure.string/split (clojure.string/trim word) #" ")]
+        (get morse letter)) " "))))
 
 (morse-to-text ". .-..")
