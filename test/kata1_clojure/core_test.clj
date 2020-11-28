@@ -2,6 +2,11 @@
   (:require [clojure.test :refer :all]
             [kata1-clojure.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest morse-to-text-test
+  (testing "morse letter to plain text"
+    (is (= "E" (morse-to-text "."))))
+  (testing "morse word to plain text"
+    (is (= "HELLO" (morse-to-text ".... . .-.. .-.. ---"))))
+)
+
+(run-tests)
