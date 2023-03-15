@@ -1,3 +1,3 @@
-# kata1_clojure
+# Morse code to text Clojure
 
-A Clojure project that transform morde code into plain text.
+A Clojure project that transforms morse code into plain text.
